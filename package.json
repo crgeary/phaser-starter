@@ -7,5 +7,10 @@
     },
     "keywords": [],
     "author": "Christopher Geary <hello@crgeary.com>",
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "@crgeary/configuration-prettier": "^1.0.3",
+        "prettier": "^2.2.1"
+    },
+    "prettier": "@crgeary/configuration-prettier"
 }
