@@ -1,0 +1,11 @@
+{
+    "name": "phaser-starter",
+    "version": "0.0.1",
+    "description": "A Phaser.io starter for Game Jams",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Christopher Geary <hello@crgeary.com>",
+    "license": "MIT"
+}
