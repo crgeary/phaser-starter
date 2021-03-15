@@ -1,4 +1,4 @@
-# Phaser Starter
+# Phaser Starter
 
 A Phaser.io starter for Game Jams
 
