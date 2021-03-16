@@ -41,5 +41,12 @@
         "**/*.+(js|jsx|json)": [
             "prettier --write"
         ]
-    }
+    },
+    "browserslist": [
+        "defaults",
+        "not < 0.5%",
+        "not IE 11",
+        "not OperaMini all",
+        "not Safari 5.1"
+    ]
 }

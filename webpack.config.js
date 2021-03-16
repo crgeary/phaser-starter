@@ -4,17 +4,19 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const pkg = require('./package.json');
+
 const isDev = process.env.NODE_ENV !== 'production';
 
-module.exports = {
+const config = {
     mode: isDev ? 'development' : 'production',
-    devtool: isDev ? 'inline-source-map' : 'source-map',
+    devtool: isDev ? 'inline-source-map' : false,
     stats: 'minimal',
     entry: {
         main: './src/index.js',
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].[chunkhash].js',
         path: path.join(__dirname, 'dist'),
     },
     module: {
@@ -45,11 +47,36 @@ module.exports = {
             WEBGL_RENDERER: JSON.stringify(true),
         }),
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: pkg.name,
+        }),
     ],
-    devServer: {
+};
+
+if (!isDev) {
+    config.performance = {
+        maxEntrypointSize: 2000000, // 2MB
+        maxAssetSize: 2000000, // 2MB
+    };
+    config.optimization = {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/](phaser)[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all',
+                },
+            },
+        },
+    };
+}
+
+if (isDev) {
+    config.devServer = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 3000,
-    },
-};
+    };
+}
+
+module.exports = config;
