@@ -4,9 +4,11 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const isDev = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-    mode: process.env.NODE_ENV !== 'production' ? 'development' : 'production',
-    devtool: 'eval-source-map',
+    mode: isDev ? 'development' : 'production',
+    devtool: isDev ? 'inline-source-map' : 'source-map',
     stats: 'minimal',
     entry: {
         main: './src/index.js',
