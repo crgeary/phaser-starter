@@ -1,5 +1,6 @@
 const path = require('path');
 
+const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -36,7 +37,14 @@ module.exports = {
             },
         ],
     },
-    plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
+    plugins: [
+        new webpack.DefinePlugin({
+            CANVAS_RENDERER: JSON.stringify(true),
+            WEBGL_RENDERER: JSON.stringify(true),
+        }),
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin(),
+    ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
