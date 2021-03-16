@@ -1,6 +1,6 @@
 # Phaser Starter
 
-A Phaser.io starter for Game Jams
+A [Phaser](https://phaser.io/) starter for Game Jams
 
 ## Features
 
