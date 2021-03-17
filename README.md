@@ -12,10 +12,10 @@ A [Phaser](https://phaser.io/) starter for Game Jams
 
 There are a number of available scripts, but the most useful are:
 
--   `npm run build` - Create a production build, output to `dist`
--   `npm run watch` - Start a development server
+-   `npm start` - Start a development server
+-   `npm run build` - Create a production build, outputs to `dist`
 
-For a full list, use: `npm run`
+For a full list use: `npm run`
 
 ## Itch Deployments
 
