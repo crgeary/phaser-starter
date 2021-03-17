@@ -8,6 +8,15 @@ A [Phaser](https://phaser.io/) starter for Game Jams
 -   ESLint & Prettier
 -   Automatic deployments to Itch
 
+## Usage
+
+There are a number of available scripts, but the most useful are:
+
+-   `npm run build` - Create a production build, output to `dist`
+-   `npm run watch` - Start a development server
+
+For a full list, use: `npm run`
+
 ## Itch Deployments
 
 A [workflow](./.github/workflows/deploy.yml) is included to automatically deploy the dist directory to an Itch game. By default, this will only run when a new GIT tag is detected matching the `v*` format, but can be easily customised should you want to change this.
