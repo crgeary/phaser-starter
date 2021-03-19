@@ -8,6 +8,8 @@ const pkg = require('./package.json');
 
 const isDev = process.env.NODE_ENV !== 'production';
 
+const capitalizeWord = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
 const config = {
     mode: isDev ? 'development' : 'production',
     devtool: isDev ? 'inline-source-map' : false,
@@ -48,7 +50,7 @@ const config = {
         }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: pkg.name,
+            title: pkg.name.split('-').map(capitalizeWord).join(' '),
         }),
     ],
 };
