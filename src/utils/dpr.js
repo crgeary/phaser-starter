@@ -1,5 +1,5 @@
 export const getDPR = () => {
-    const ratio = Math.round(window.devicePixelRatio || 1);
+    const ratio = Math.ceil(window.devicePixelRatio || 1);
     if (ratio <= 1) {
         return 1;
     } else if (ratio >= 4) {
