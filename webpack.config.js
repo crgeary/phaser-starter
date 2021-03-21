@@ -10,6 +10,9 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 const capitalizeWord = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
+const GAME_NAME = pkg.name.split('-').map(capitalizeWord).join(' ');
+const GAME_VERSION = pkg.version;
+
 const config = {
     mode: isDev ? 'development' : 'production',
     devtool: isDev ? 'inline-source-map' : false,
@@ -47,10 +50,12 @@ const config = {
         new webpack.DefinePlugin({
             CANVAS_RENDERER: JSON.stringify(true),
             WEBGL_RENDERER: JSON.stringify(true),
+            GAME_NAME: JSON.stringify(GAME_NAME),
+            GAME_VERSION: JSON.stringify(GAME_VERSION),
         }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: pkg.name.split('-').map(capitalizeWord).join(' '),
+            title: GAME_NAME,
         }),
     ],
 };
