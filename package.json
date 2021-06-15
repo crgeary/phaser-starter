@@ -18,7 +18,7 @@
     "author": "Christopher Geary <hello@crgeary.com>",
     "license": "MIT",
     "devDependencies": {
-        "@babel/core": "7.14.5",
+        "@babel/core": "7.14.6",
         "@babel/preset-env": "7.14.5",
         "@crgeary/configuration-prettier": "1.0.3",
         "babel-loader": "8.2.2",
